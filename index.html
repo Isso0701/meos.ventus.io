@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101c2e">
+<meta name="description" content="MEOS, het operationele informatie- en registratiesysteem.">
+<title>MEOS | Politie</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="login-shell" class="login-shell">
+  <section class="login-card" aria-labelledby="login-title">
+    <a class="brand login-brand" href="#" aria-label="MEOS">
+      <span class="crest" aria-hidden="true">M</span>
+      <span class="brand-copy">MEOS<small>POLITIE PORTAAL</small></span>
+    </a>
+    <span class="login-badge"><span class="online-dot"></span> Beveiligde toegang</span>
+    <h1 id="login-title">Welkom bij MEOS</h1>
+    <p class="login-description">Log in met Discord. Je account moet lid zijn van de gekoppelde Discord-server om toegang te krijgen.</p>
+    <button id="discord-login" class="discord-button" type="button" disabled>
+      <span class="discord-mark" aria-hidden="true">D</span> Inloggen met Discord
+    </button>
+    <p id="auth-status" class="auth-status" role="status" aria-live="polite"></p>
+    <p class="login-footnote">Alleen leden van de ingestelde server krijgen toegang. De website gebruikt fictieve demo-gegevens.</p>
+  </section>
+</main>
+<main id="app-shell" hidden>
+  <aside class="sidebar">
+    <a class="brand" href="#" aria-label="MEOS overzicht">
+      <span class="crest" aria-hidden="true">M</span>
+      <span class="brand-copy">MEOS<small>POLITIE PORTAAL</small></span>
+    </a>
+    <div class="workspace">WERKOMGEVING</div>
+    <nav aria-label="Hoofdnavigatie">
+      <button data-tab="dashboard" class="active"><span aria-hidden="true">◫</span> Overzicht</button>
+      <button data-tab="people"><span aria-hidden="true">♙</span> Burgers</button>
+      <button data-tab="vehicles"><span aria-hidden="true">▱</span> Voertuigen</button>
+      <button data-tab="reports"><span aria-hidden="true">▤</span> Dossiers</button>
+      <button data-tab="bolos"><span aria-hidden="true">◎</span> Signaleringen</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <span class="online-dot"></span><span>Lokale demo</span>
+      <div class="version">MEOS <span>·</span> Operationeel systeem</div>
+    </div>
+  </aside>
+  <section class="workspace-main">
+    <header>
+      <div class="header-title"><span class="eyebrow">INFORMATIE &amp; OPERATIE</span><h1 id="page-title">Overzicht</h1></div>
+      <div class="profile">
+        <span id="profile-avatar" class="avatar" aria-hidden="true">D</span>
+        <div><b id="profile-name">Discord gebruiker</b><small>Discord · serverlid</small></div>
+        <button id="logout" class="secondary logout-button" type="button">Uitloggen</button>
+      </div>
+    </header>
+    <div class="demo-banner" role="note">Demo-omgeving <span>·</span> Voorbeeldgegevens, alleen opgeslagen in deze browser.</div>
+    <div id="status" role="status" hidden></div>
+    <div id="content"></div>
+    <footer><span>Demo-gegevens worden lokaal opgeslagen.</span><span id="clock"></span></footer>
+  </section>
+</main>
+<dialog id="modal">
+  <form id="modal-form">
+    <div class="modal-heading"><h2 id="modal-title"></h2><button type="button" id="modal-close" class="close" aria-label="Sluiten">×</button></div>
+    <div id="modal-fields"></div>
+    <div id="modal-error" role="alert"></div>
+    <div class="form-actions"><button type="button" id="modal-cancel" class="secondary">Annuleren</button><button type="submit" class="primary">Opslaan</button></div>
+  </form>
+</dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="demo.js"></script>
+<script src="auth.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
